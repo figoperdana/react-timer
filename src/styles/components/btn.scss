@@ -1,0 +1,40 @@
+@mixin bg-color($color-key) {
+    background-color: var($color-key);
+
+    &:hover {
+        background-color: var(#{$color-key}-dark);
+        color: var(--secondary);
+        fill: var(--secondary);
+    }
+}
+
+#buttons{
+    background-color: var(--on-background);
+    color: var(--background);
+}
+
+.btn {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 5px;
+    color: var(--on-background);
+    fill: var(--on-background);
+    font-size: 1.25rem;
+    padding: 0.5em 1em;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: $shadow-md;
+
+    &_success {
+        @include bg-color(--color-success)
+    }
+
+    &_danger {
+        @include bg-color(--color-danger)
+    }
+
+    &_fancy {
+        @include bg-color(--color-fancy)
+    }
+}
